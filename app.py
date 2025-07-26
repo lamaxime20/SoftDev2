@@ -22,7 +22,7 @@ def handle_form():
 
     try:
         with connection.cursor() as cursor:
-            cursor.callproc('CreationReq', [nom, email, message])
+            cursor.execute("CALL CreationReq(%s, %s, %s)", (nom, email, message))
             connection.commit()
         return "✅ Requête envoyée avec succès !", 200
     except Exception as e:
