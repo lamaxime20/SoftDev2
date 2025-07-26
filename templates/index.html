@@ -11,7 +11,7 @@
         <section class="acceuil" id="acceuil">
             <canvas id="stars"></canvas>
             <div class="vbox">
-                <img class="logo" src="Images/LogoSoftDev.png" alt="LogoSoftDev">
+                <img class="logo" src="{{ url_for('static', filename='Images/LogoSoftDev.png') }}" alt="LogoSoftDev">
                 <h3 class="slogan">Des solutions logicielles taillées pour votre entreprise</h3>
                 <button class="btn1" id="devis">Obtenir un devis</button>
             </div>
@@ -77,20 +77,20 @@
             </form>
             <div class="hboxlogo">
                 <div class="cardLogo">
-                    <img src="Images/LinkeldIn.png" alt="LinkeldIn" class="logo2">
+                    <img src="{{ url_for('static', filename='Images/LinkeldIn.png') }}" alt="LinkedIn">
                 </div>
                 <div class="cardLogo">
                     <a href="https://wa.me/+237679492651" target="_blank">
-                        <img src="Images/Whatsapp.png" alt="Whatsapp" class="logo2">
+                        <img src="{{ url_for('static', filename='Images/Whatsapp.png') }}" alt="WhatsApp">
                     </a>
                 </div>
                 <div class="cardLogo">
-                    <img src="Images/Mail.png" alt="Mail" class="logo2">
+                    <img src="{{ url_for('static', filename='Images/Mail.png') }}" alt="Mail">
                 </div>
             </div>
         </div>
-        <script src="Scripts/stars.js"></script>
-        <script src="Scripts/cube.js"></script>
-        <script src="Scripts/transition.js"></script>
+        <script src="{{ url_for('static', filename='Scripts/stars.js') }}"></script>
+        <script src="{{ url_for('static', filename='Scripts/cube.js') }}"></script>
+        <script src="{{ url_for('static', filename='Scripts/transition.js') }}"></script>
     </body>
 </html>
