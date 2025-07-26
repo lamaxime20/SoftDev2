@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Style/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js"></script>
+        <title>SoftDev</title>
+    </head>
+    <body>
+        <section class="acceuil" id="acceuil">
+            <canvas id="stars"></canvas>
+            <div class="vbox">
+                <img class="logo" src="Images/LogoSoftDev.png" alt="LogoSoftDev">
+                <h3 class="slogan">Des solutions logicielles taillées pour votre entreprise</h3>
+                <button class="btn1" id="devis">Obtenir un devis</button>
+            </div>
+        </section>
+        <section class="section2" id="section2">
+            <canvas id="cube"></canvas>
+            <div class="container">
+                <!-- À propos -->
+                <section id="about">
+                <h2>🎯 À propos de Soft Dev</h2>
+                <p><strong>Soft Dev</strong> est une agence de développement logiciel dédiée à la création de solutions sur mesure pour les entreprises de toute taille.</p>
+                <ul>
+                    <li>⚡ Réactivité</li>
+                    <li>🔧 Solutions personnalisées</li>
+                    <li>🤝 Proximité avec le client</li>
+                </ul>
+                <p><em>📍 Basée au Cameroun, disponible dans le monde entier</em></p>
+                </section>
+
+                <!-- Services -->
+                <section id="services">
+                <h2>🛠️ Nos services</h2>
+                <div class="cards">
+                    <div class="card">📦 Logiciels sur mesure (ERP, automatisation…)</div>
+                    <div class="card">🌐 Création de sites web (vitrine, e-commerce…)</div>
+                    <div class="card">🎨 UI/UX design, refonte</div>
+                    <div class="card">🛡️ Maintenance, support, évolution</div>
+                </div>
+                </section>
+
+                <!-- Méthode -->
+                <section id="method">
+                <h2>🧠 Notre méthode de travail</h2>
+                <ol>
+                    <li>🔍 Analyse des besoins</li>
+                    <li>📑 Proposition technique</li>
+                    <li>⚙️ Développement agile</li>
+                    <li>🧪 Tests & déploiement</li>
+                    <li>🎓 Formation & suivi</li>
+                </ol>
+                </section>
+            </div>
+        </section>
+        <div class="contacts" id="contacts">
+            <h1 class="intro">Contactez-nous</h1>
+            <form method="post" action="Scripts/formulaire.py" id="form">
+                <div class="formulaire" id="formulaire">
+                    <br>
+                    <div class="hbox">
+                        <label class="labelform" for="nom">Nom: </label>
+                        <input type="text" class="inpuTextform" id="nom" name="nom" placeholder="Entrer votre nom" required>
+                    </div>
+                    <div class="hbox">
+                        <label class="labelform" for="email">Email: </label>
+                        <input type="email" class="inpuTextform" id="email" name="email" placeholder="Entrer votre email" required>
+                    </div>
+                    <div class="hbox2">
+                        <label class="labelform" for="message">Message: </label>
+                        <textarea class="inpuTextform" id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="validation">Soumettre</button>
+                </div>
+            </form>
+            <div class="hboxlogo">
+                <div class="cardLogo">
+                    <img src="Images/LinkeldIn.png" alt="LinkeldIn" class="logo2">
+                </div>
+                <div class="cardLogo">
+                    <a href="https://wa.me/+237679492651" target="_blank">
+                        <img src="Images/Whatsapp.png" alt="Whatsapp" class="logo2">
+                    </a>
+                </div>
+                <div class="cardLogo">
+                    <img src="Images/Mail.png" alt="Mail" class="logo2">
+                </div>
+            </div>
+        </div>
+        <script src="Scripts/stars.js"></script>
+        <script src="Scripts/cube.js"></script>
+        <script src="Scripts/transition.js"></script>
+    </body>
+</html>
