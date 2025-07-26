@@ -41,4 +41,30 @@
             block: "center"
         });
     });
+
+    document.getElementById('form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Empêche le rechargement de la page
+
+        const form = e.target;
+        const formData = new FormData(form);
+
+        fetch('/formulaire', {
+            method: 'POST',
+            body: formData
+        })
+        .then(async (response) => {
+            const text = await response.text();
+
+            if (response.ok) {
+                alert("✅ " + text);
+                form.reset(); // Vide le formulaire après succès
+            } else {
+                alert("❌ " + text);
+            }
+        })
+        .catch((error) => {
+            alert("❌ Une erreur réseau est survenue.");
+            console.error("Erreur Fetch :", error);
+        });
+    });
 })();
