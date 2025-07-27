@@ -26,6 +26,7 @@ def handle_form():
             connection.commit()
         return "✅ Requête envoyée avec succès !", 200
     except Exception as e:
+        connection.rollback()  # annule la transaction en erreur
         return f"❌ Erreur : {e}", 500
 
 if __name__ == '__main__':
