@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, render_template
 from db import connection
 import re
+import threading
+import time
 
 app = Flask(__name__)
 
@@ -27,7 +29,33 @@ def handle_form():
         return "✅ Requête envoyée avec succès !", 200
     except Exception as e:
         connection.rollback()  # annule la transaction en erreur
+        print("❌ Erreur côté serveur :", e)
         return f"❌ Erreur : {e}", 500
 
+# Fonction pour réveiller la base Neon
+def wake_up_db():
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT 1;")
+        print("✅ Base de données réveillée avec succès.")
+    except Exception as e:
+        print(f"⚠️ Échec du réveil de la base : {e}")
+
+# Fonction pour garder la base active
+def keep_db_awake(interval=600):  # 600 secondes = 10 minutes
+    def ping():
+        while True:
+            try:
+                with connection.cursor() as cursor:
+                    cursor.execute("SELECT 1;")
+                print("🔄 Ping DB réussi")
+            except Exception as e:
+                print(f"⚠️ Ping DB échoué : {e}")
+            time.sleep(interval)
+    thread = threading.Thread(target=ping, daemon=True)
+    thread.start()
+
 if __name__ == '__main__':
+    wake_up_db()
+    keep_db_awake()
     app.run(host="0.0.0.0", port=10000)

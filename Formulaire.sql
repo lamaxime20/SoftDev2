@@ -43,11 +43,11 @@ $$;
 -- 🟣 Fonction de récupération
 CREATE OR REPLACE FUNCTION AvoirReq()
 RETURNS TABLE (
-    id INT,
-    nom TEXT,
-    email TEXT,
-    message TEXT,
-    Date_creation DATE
+    id_in INT,
+    nom_in VARCHAR(60),
+    email_in TEXT,
+    message_in TEXT,
+    Date_creation_in DATE
 )
 LANGUAGE plpgsql
 AS $$
