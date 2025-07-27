@@ -1,0 +1,8 @@
+| Élément                | Valeur                                                           |
+| ---------------------- | ---------------------------------------------------------------- |
+| **Utilisateur (user)** | `neondb_owner`                                                   |
+| **Mot de passe**       | `npg_Njinufa7S2ko`                                               |
+| **Hôte (host)**        | `ep-patient-paper-a2tcldxn-pooler.eu-central-1.aws.neon.tech`    |
+| **Port**               | `5432` (par défaut pour PostgreSQL, même s’il n’est pas précisé) |
+| **Nom de la base**     | `MaxDB`                                                          |
+| **SSL**                | `sslmode=require` → la connexion doit être sécurisée             |

@@ -1,10 +1,10 @@
 import psycopg2
 from psycopg2 import OperationalError
 
-host = 'dpg-d228skre5dus739coue0-a.oregon-postgres.render.com'
-dbname = 'formulairedevsoft'
-user = 'formulairedevsoft_user'
-password = 'pIvarf5IubHWjEbE7VG0anZrC59qFpmK'
+host = 'ep-patient-paper-a2tcldxn-pooler.eu-central-1.aws.neon.tech'
+dbname = 'MaxDB'
+user = 'neondb_owner'
+password = 'npg_Njinufa7S2ko'
 
 connection = None
 
