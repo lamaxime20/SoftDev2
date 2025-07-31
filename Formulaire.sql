@@ -6,6 +6,50 @@ CREATE TABLE Requetes (
     Date_creation DATE NOT NULL
 );
 
+CREATE TABLE Notification (
+    notif TEXT NOT NULL,
+    exist BOOLEAN NOT NULL,
+    CONSTRAINT Notification_cc0 PRIMARY KEY(notif)
+);
+
+INSERT INTO Notification(notif, exist)
+VALUES ('Requete', FALSE);
+
+-- Triggers
+-- Trigger pour voir une modification de Requetes
+CREATE OR REPLACE FUNCTION notify_Requetes() RETURNS trigger AS $$
+BEGIN
+  UPDATE Notification
+  SET exist = TRUE
+  WHERE notif = 'Requete'
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER donnees_update_trigger
+AFTER INSERT OR UPDATE OR DELETE ON Requetes
+FOR EACH ROW
+EXECUTE FUNCTION notify_Requetes();
+
+-- Procedure de notif
+CREATE OR REPLACE FUNCTION getNotification(nom_in TEXT)
+LANGUAGE plpgsql
+RETURNS BOOLEAN
+DECLARE exist_in BOOLEAN
+AS $$
+BEGIN
+    SELECT exist
+    INTO exist_in
+    FROM Notification
+    WHERE notif = nom_in;
+
+    UPDATE Notification
+    SET exist = FALSE
+    WHERE notif = 'Requete'
+    RETURN exist_in;
+END;
+$$;
+
 -- 🔵 Procédure d’insertion
 CREATE OR REPLACE PROCEDURE CreationReq(nom_in TEXT, email_in TEXT, message_in TEXT)
 LANGUAGE plpgsql
